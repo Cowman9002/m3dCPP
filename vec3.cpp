@@ -143,6 +143,24 @@ namespace m3d
         return a * cos(theta) + offset * sin(theta);
     }
 
+    vec3 vec3::scale(const vec3& a, const vec3& b)
+    {
+        vec3 res;
+        res.x = a.x * b.x;
+        res.y = a.y * b.y;
+        res.z = a.z * b.z;
+        return res;
+    }
+
+    vec3 vec3::invScale(const vec3& a, const vec3& b)
+    {
+        vec3 res;
+        res.x = a.x / b.x;
+        res.y = a.y / b.y;
+        res.z = a.z / b.z;
+        return res;
+    }
+
     vec3 vec3::add(const vec3& a, const vec3& b)
     {
         vec3 res;
