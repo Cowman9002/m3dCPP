@@ -1,0 +1,145 @@
+# depslib dependency file v1.0
+1595862826 source:c:\dev\c\m3d\math1d.c
+	"m3d/m3d.h"
+	<math.h>
+
+1595862479 c:\dev\c\m3d\m3d.h
+
+1596991025 source:c:\dev\c\m3d\quat.c
+	"m3d/m3d.h"
+	<math.h>
+
+1596469250 source:c:\dev\c\m3d\vec3.c
+	"m3d/m3d.h"
+	<math.h>
+
+1596469196 source:c:\dev\c\m3d\vec2.c
+	"m3d/m3d.h"
+	<math.h>
+
+1596469292 source:c:\dev\c\m3d\vec4.c
+	"m3d/m3d.h"
+
+1596219722 source:c:\dev\c\m3d\mat3x3.c
+	"m3d/m3d.h"
+	<math.h>
+	<stdint.h>
+
+1597260660 source:c:\dev\c\m3d\mat4x4.c
+	"m3d/m3d.h"
+	<math.h>
+	<stdint.h>
+
+1597244916 c:\dev\c\m3d\m3d\m3d.h
+
+1596503972 source:c:\dev\c\m3d\main.c
+	"m3d/m3d.h"
+
+1595979176 source:d:\dev\c\m3d\mat4x4.c
+	"m3d/m3d.h"
+	<math.h>
+	<stdint.h>
+
+1596156486 d:\dev\c\m3d\m3d\m3d.h
+
+1595862826 source:d:\dev\c\m3d\math1d.c
+	"m3d/m3d.h"
+	<math.h>
+
+1595978806 source:d:\dev\c\m3d\quat.c
+	"m3d/m3d.h"
+	<math.h>
+
+1595862832 source:d:\dev\c\m3d\vec2.c
+	"m3d/m3d.h"
+	<math.h>
+
+1595862836 source:d:\dev\c\m3d\vec3.c
+	"m3d/m3d.h"
+	<math.h>
+
+1595862838 source:d:\dev\c\m3d\vec4.c
+	"m3d/m3d.h"
+
+1596156590 source:d:\dev\c\m3d\mat3x3.c
+	"m3d/m3d.h"
+	<math.h>
+	<stdint.h>
+
+1598653496 source:c:\dev\cpp\m3d\main.c
+
+1598653486 c:\dev\cpp\m3d\m3d\m3d.h
+
+1598653526 source:c:\dev\cpp\m3d\mat3x3.c
+
+1595862826 source:c:\dev\cpp\m3d\math1d.c
+	"m3d/m3d.h"
+	<math.h>
+
+1596469250 source:c:\dev\cpp\m3d\vec3.c
+	"m3d/m3d.h"
+	<math.h>
+
+1596469292 source:c:\dev\cpp\m3d\vec4.c
+	"m3d/m3d.h"
+
+1598653523 source:c:\dev\cpp\m3d\mat4x4.c
+
+1598653496 source:c:\dev\cpp\m3d\main.cpp
+
+1598791026 source:c:\dev\cpp\m3d\mat3x3.cpp
+	"m3d/mat3x3.h"
+	"m3d/mat4x4.h"
+	"m3d/vec2.h"
+	"m3d/vec3.h"
+	"m3d/quat.h"
+	<math.h>
+
+1598791064 source:c:\dev\cpp\m3d\mat4x4.cpp
+	"m3d/mat4x4.h"
+	"m3d/mat3x3.h"
+	"m3d/vec3.h"
+	"m3d/vec4.h"
+	"m3d/quat.h"
+	<math.h>
+
+1598653599 source:c:\dev\cpp\m3d\math1d.cpp
+	"m3d/math1D.h"
+	<math.h>
+
+1598707146 c:\dev\cpp\m3d\m3d\math1d.h
+
+1598798195 source:c:\dev\cpp\m3d\vec4.cpp
+	"m3d/vec4.h"
+	"m3d/vec3.h"
+	"m3d/math1D.h"
+
+1598798176 c:\dev\cpp\m3d\m3d\vec4.h
+
+1598798128 c:\dev\cpp\m3d\m3d\vec3.h
+
+1598800654 source:c:\dev\cpp\m3d\quat.cpp
+	"m3d/quat.h"
+	"m3d/vec3.h"
+	"m3d/math1D.h"
+	<math.h>
+
+1598800668 c:\dev\cpp\m3d\m3d\quat.h
+
+1598800186 source:c:\dev\cpp\m3d\vec3.cpp
+	"m3d/vec3.h"
+	"m3d/vec2.h"
+	"m3d/math1D.h"
+	<math.h>
+
+1598798076 c:\dev\cpp\m3d\m3d\vec2.h
+
+1598800174 source:c:\dev\cpp\m3d\vec2.cpp
+	"m3d/vec2.h"
+	"m3d/math1D.h"
+	<math.h>
+
+1598791008 c:\dev\cpp\m3d\m3d\mat3x3.h
+
+1598791048 c:\dev\cpp\m3d\m3d\mat4x4.h
+

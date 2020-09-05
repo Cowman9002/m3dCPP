@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="m3d" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/m3d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+		</Compiler>
+		<Unit filename="m3d/mat3x3.h" />
+		<Unit filename="m3d/mat4x4.h" />
+		<Unit filename="m3d/math1D.h" />
+		<Unit filename="m3d/quat.h" />
+		<Unit filename="m3d/vec2.h" />
+		<Unit filename="m3d/vec3.h" />
+		<Unit filename="m3d/vec4.h" />
+		<Unit filename="main.cpp">
+			<Option compilerVar="CC" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mat3x3.cpp" />
+		<Unit filename="mat4x4.cpp" />
+		<Unit filename="math1D.cpp" />
+		<Unit filename="quat.cpp" />
+		<Unit filename="vec2.cpp" />
+		<Unit filename="vec3.cpp" />
+		<Unit filename="vec4.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
