@@ -38,6 +38,10 @@ namespace m3d
         float lengthSqr() const;
         quat normalized()const;
         quat conjugate() const;
+
+        vec3 getRight();
+        vec3 getUp();
+        vec3 getForward();
     };
 }
 

@@ -37,6 +37,13 @@ namespace m3d
         static vec3 reflect(const vec3& v, const vec3& normal);
         static vec3 slerp(const vec3& a, const vec3& b, const float& t);
 
+        static vec3 right();
+        static vec3 up();
+        static vec3 forwards();
+        static vec3 left();
+        static vec3 down();
+        static vec3 back();
+
         static vec3 scale(const vec3& a, const vec3& b);
         static vec3 invScale(const vec3& a, const vec3& b);
 

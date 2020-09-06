@@ -143,6 +143,36 @@ namespace m3d
         return a * cos(theta) + offset * sin(theta);
     }
 
+    vec3 right()
+    {
+        return vec3(1.0f, 0.0f, 0.0f);
+    }
+
+    vec3 vec3::vec3::up()
+    {
+        return vec3(0.0f, 1.0f, 0.0f);
+    }
+
+    vec3 vec3::forwards()
+    {
+        return vec3(0.0f, 0.0f, 1.0f);
+    }
+
+    vec3 vec3::left()
+    {
+        return vec3(-1.0f, 0.0f, 0.0f);
+    }
+
+    vec3 vec3::down()
+    {
+        return vec3(0.0f, -1.0f, 0.0f);
+    }
+
+    vec3 vec3::back()
+    {
+        return vec3(0.0f, 0.0f, -1.0f);
+    }
+
     vec3 vec3::scale(const vec3& a, const vec3& b)
     {
         vec3 res;

@@ -231,6 +231,21 @@ namespace m3d
     {
         return quat::conjugate(*this);
     }
+
+    vec3 quat::getRight()
+    {
+        return rotateVec3(*this, vec3(1.0f, 0.0f, 0.0f));
+    }
+
+    vec3 quat::getUp()
+    {
+        return rotateVec3(*this, vec3(0.0f, 1.0f, 0.0f));
+    }
+
+    vec3 quat::getForward()
+    {
+        return rotateVec3(*this, vec3(0.0f, 0.0f, 1.0f));
+    }
 }
 
 bool operator==(const m3d::quat& a, const m3d::quat&b)

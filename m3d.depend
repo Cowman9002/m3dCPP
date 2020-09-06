@@ -116,17 +116,17 @@
 
 1598798176 c:\dev\cpp\m3d\m3d\vec4.h
 
-1599332832 c:\dev\cpp\m3d\m3d\vec3.h
+1599414903 c:\dev\cpp\m3d\m3d\vec3.h
 
-1598800654 source:c:\dev\cpp\m3d\quat.cpp
+1599414822 source:c:\dev\cpp\m3d\quat.cpp
 	"m3d/quat.h"
 	"m3d/vec3.h"
 	"m3d/math1D.h"
 	<math.h>
 
-1598800668 c:\dev\cpp\m3d\m3d\quat.h
+1599414721 c:\dev\cpp\m3d\m3d\quat.h
 
-1598800186 source:c:\dev\cpp\m3d\vec3.cpp
+1599414992 source:c:\dev\cpp\m3d\vec3.cpp
 	"m3d/vec3.h"
 	"m3d/vec2.h"
 	"m3d/math1D.h"
