@@ -67,7 +67,7 @@ namespace m3d
         return vec3::length(b - a);
     }
 
-    float distanceSqr(const vec3& a, const vec3& b)
+    float vec3::distanceSqr(const vec3& a, const vec3& b)
     {
         return vec3::lengthSqr(b - a);
     }
@@ -143,19 +143,19 @@ namespace m3d
         return a * cos(theta) + offset * sin(theta);
     }
 
-    vec3 right()
+    vec3 vec3::right()
     {
         return vec3(1.0f, 0.0f, 0.0f);
     }
 
-    vec3 vec3::vec3::up()
+    vec3 vec3::up()
     {
         return vec3(0.0f, 1.0f, 0.0f);
     }
 
     vec3 vec3::forwards()
     {
-        return vec3(0.0f, 0.0f, 1.0f);
+        return vec3(0.0f, 0.0f, -1.0f);
     }
 
     vec3 vec3::left()
@@ -170,7 +170,7 @@ namespace m3d
 
     vec3 vec3::back()
     {
-        return vec3(0.0f, 0.0f, -1.0f);
+        return vec3(0.0f, 0.0f, 1.0f);
     }
 
     vec3 vec3::scale(const vec3& a, const vec3& b)

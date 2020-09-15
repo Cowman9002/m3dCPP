@@ -2,14 +2,24 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="vec2.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="m3d\quat.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1772" topLine="66" />
+			<Cursor1 position="485" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="m3d\vec3.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1423" topLine="30" />
 		</Cursor>
 	</File>
 	<File name="m3d\math1D.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="122" topLine="0" />
+			<Cursor1 position="364" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="m3d\mat4x4.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="618" topLine="1" />
 		</Cursor>
 	</File>
 	<File name="main.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -17,49 +27,32 @@
 			<Cursor1 position="58" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="m3d\mat3x3.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="vec4.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1053" topLine="23" />
-		</Cursor>
-	</File>
-	<File name="math1D.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="219" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="mat3x3.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4014" topLine="162" />
-		</Cursor>
-	</File>
-	<File name="m3d\quat.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1397" topLine="29" />
+			<Cursor1 position="2205" topLine="51" />
 		</Cursor>
 	</File>
 	<File name="quat.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6583" topLine="232" />
+			<Cursor1 position="2234" topLine="181" />
+		</Cursor>
+	</File>
+	<File name="vec3.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1561" topLine="132" />
 		</Cursor>
 	</File>
 	<File name="mat4x4.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5638" topLine="226" />
+			<Cursor1 position="2006" topLine="77" />
 		</Cursor>
+		<Folding>
+			<Collapse line="198" />
+		</Folding>
 	</File>
 	<File name="m3d\vec4.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="882" topLine="25" />
-		</Cursor>
-	</File>
-	<File name="m3d\mat4x4.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1366" topLine="29" />
-		</Cursor>
-	</File>
-	<File name="vec4.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2205" topLine="51" />
+			<Cursor1 position="882" topLine="4" />
 		</Cursor>
 	</File>
 	<File name="m3d\vec2.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -67,14 +60,24 @@
 			<Cursor1 position="1580" topLine="31" />
 		</Cursor>
 	</File>
-	<File name="vec3.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="m3d\mat3x3.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3441" topLine="139" />
+			<Cursor1 position="1053" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="m3d\vec3.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="mat3x3.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1423" topLine="30" />
+			<Cursor1 position="4014" topLine="162" />
+		</Cursor>
+	</File>
+	<File name="vec2.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1772" topLine="66" />
+		</Cursor>
+	</File>
+	<File name="math1D.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="307" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

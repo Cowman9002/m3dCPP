@@ -1,7 +1,11 @@
 #include "m3d/quat.h"
 #include "m3d/vec3.h"
 #include "m3d/math1D.h"
-#include <math.h>
+#include "m3d/mat4x4.h"
+#include <cmath>
+#include <algorithm>
+
+#include <stdio.h>
 
 namespace m3d
 {
@@ -9,10 +13,11 @@ namespace m3d
     quat::quat(const float& i, const float& j, const float& k, const float& w) : i(i), j(j), k(k), w(w) {};
     quat::quat(const float& angle, const vec3& axis)
     {
-        i = axis.x * sin(angle / 2.0f);
-        j = axis.y * sin(angle / 2.0f);
-        k = axis.z * sin(angle / 2.0f);
-        w = cos(angle / 2.0f);
+        float s = std::sin(angle / 2.0f);
+        i = axis.x * s;
+        j = axis.y * s;
+        k = axis.z * s;
+        w = std::cos(angle / 2.0f);
     }
 
     ///////////////////////////////////////
@@ -61,6 +66,11 @@ namespace m3d
         return res;
     }
 
+    float quat::dot(const quat& a, const quat& b)
+    {
+        return a.i * b.i + a.j * b.j + a.k * b.k + a.w * b.w;
+    }
+
     vec3 quat::euler(const quat& v)
     {
         float i2 = v.i * v.i;
@@ -94,6 +104,11 @@ namespace m3d
         return res;
     }
 
+    quat quat::lookat(const vec3& source, const vec3& dest, const vec3& up)
+    {
+        return quat::fromMat4x4(mat4x4::lookat(source, dest, up));
+    }
+
     vec3 quat::rotateVec3(const quat& a, const vec3& b)
     {
         quat P = quat(b.x, b.y, b.z, 0.0f);
@@ -114,32 +129,92 @@ namespace m3d
         return res;
     }
 
+    //https://en.wikipedia.org/wiki/Slerp#Source_code
     quat quat::slerp(const quat& a, const quat& b, const float& t)
+    {
+        // Only unit quaternions are valid rotations.
+        // Normalize to avoid undefined behavior.
+        quat v0 = a.normalized();
+        quat v1 = b.normalized();
+
+        // Compute the cosine of the angle between the two vectors.
+        float dot = quat::dot(a, b);
+
+        // If the dot product is negative, slerp won't take
+        // the shorter path. Note that v1 and -v1 are equivalent when
+        // the negation is applied to all four components. Fix by
+        // reversing one quaternion.
+        if (dot < 0.0f) {
+            v1 = -v1;
+            v1.w = -v1.w;
+            dot = -dot;
+        }
+
+        const double DOT_THRESHOLD = 0.9995;
+        if (dot > DOT_THRESHOLD) {
+            // If the inputs are too close for comfort, linearly interpolate
+            // and normalize the result.
+
+            quat r = v1 - v0;
+            quat result = v0 + r * t;
+            return result.normalized();
+        }
+
+        // Since dot is in range [0, DOT_THRESHOLD], acos is safe
+        float theta_0 = std::acos(dot);        // theta_0 = angle between input vectors
+        float theta = theta_0 * t;          // theta = angle between v0 and result
+        float sin_theta = std::sin(theta);     // compute this value only once
+        float sin_theta_0 = std::sin(theta_0); // compute this value only once
+
+        float s0 = std::cos(theta) - dot * sin_theta / sin_theta_0;  // == sin(theta_0 - theta) / sin(theta_0)
+        float s1 = sin_theta / sin_theta_0;
+
+        return ((v0 * s0) + (v1 * s1)).normalized();
+    }
+
+    //https://www.euclideanspace.com/maths/geometry/rotations/conversions/matrixToQuaternion/
+    quat quat::fromMat4x4(const mat4x4& mat)
     {
         quat res;
 
-        float cosHalfTheta = a.w * b.w + a.i * b.i + a.j * b.j + a.k * b.k;
-        // if qa=qb or qa=-qb then theta = 0 and we can return qa
-        if (abs(cosHalfTheta) >= 1.0f)
+        float trace = mat.m[0][0] + mat.m[1][1] + mat.m[2][2];
+        if( trace > 0 )
         {
-            return a;
+            float s = 0.5f / sqrtf(trace+ 1.0f);
+            res.w = 0.25f / s;
+            res.i = ( mat.m[1][2] - mat.m[2][1] ) * s;
+            res.j = ( mat.m[2][0] - mat.m[0][2] ) * s;
+            res.k = ( mat.m[0][1] - mat.m[1][0] ) * s;
         }
-        // Calculate temporary values.
-        float halfTheta = acos(cosHalfTheta);
-        float sinHalfTheta = sqrt(1.0f - cosHalfTheta*cosHalfTheta);
-        // if theta = 180 degrees then result is not fully defined
-        // we could rotate around any axis normal to qa or qb
-        if (fabs(sinHalfTheta) < 0.001f)
+        else
         {
-            return a * 0.5f + b * 0.5f;
+            if( mat.m[0][0] > mat.m[1][1] && mat.m[0][0] > mat.m[2][2] )
+            {
+                float s = 2.0f * sqrtf( 1.0f + mat.m[0][0] - mat.m[1][1] - mat.m[2][2]);
+                res.w = (mat.m[1][2] - mat.m[2][1] ) / s;
+                res.i = 0.25f * s;
+                res.j = (mat.m[1][0] + mat.m[0][1] ) / s;
+                res.k = (mat.m[2][0] + mat.m[0][2] ) / s;
+            }
+            else if(mat.m[1][1] > mat.m[2][2])
+            {
+                float s = 2.0f * sqrtf( 1.0f + mat.m[1][1] - mat.m[0][0] - mat.m[2][2]);
+                res.w = (mat.m[2][0] - mat.m[0][2] ) / s;
+                res.i = (mat.m[1][0] + mat.m[0][1] ) / s;
+                res.j = 0.25f * s;
+                res.k = (mat.m[2][1] + mat.m[1][2] ) / s;
+            }
+            else
+            {
+                float s = 2.0f * sqrtf( 1.0f + mat.m[2][2] - mat.m[0][0] - mat.m[1][1] );
+                res.w = (mat.m[0][1] - mat.m[1][0] ) / s;
+                res.i = (mat.m[2][0] + mat.m[0][2] ) / s;
+                res.j = (mat.m[2][1] + mat.m[1][2] ) / s;
+                res.k = 0.25f * s;
+            }
         }
 
-        //calculate quaternion.
-        res = a * sin((1 - t) * halfTheta);
-        res = res + b * sin(t * halfTheta);
-        res = res / sin(halfTheta);
-
-        return res;
+        return res.normalized();
     }
 
     quat quat::add(const quat& a, const quat& b)
@@ -244,7 +319,7 @@ namespace m3d
 
     vec3 quat::getForward()
     {
-        return rotateVec3(*this, vec3(0.0f, 0.0f, 1.0f));
+        return rotateVec3(*this, vec3(0.0f, 0.0f, -1.0f));
     }
 }
 

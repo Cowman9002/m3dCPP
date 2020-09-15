@@ -6,6 +6,8 @@
 
 #include <math.h>
 
+#include <stdio.h>
+
 namespace m3d
 {
     mat4x4::mat4x4() {};
@@ -65,6 +67,29 @@ namespace m3d
         res.m[2][2] = -(f + n) * fmn;
         res.m[2][3] = -2.0f * (f * n) * fmn;
         res.m[3][2] = -1.0f;
+
+        return res;
+    }
+
+    mat4x4 mat4x4::lookat(const vec3& from, const vec3& to, const vec3& up)
+    {
+        mat4x4 res;
+
+        vec3 f = (from - to).normalized();
+        vec3 r = vec3::cross(up.normalized(), f).normalized();
+        vec3 u = vec3::cross(f, r).normalized();
+
+        //printf("%f, %f, %f\n", right.x, right.y, right.z);
+
+        res.m[0][0] = r.x;   res.m[0][1] = r.y;   res.m[0][2] = r.z;   res.m[0][3] = 0;
+        res.m[1][0] = u.x;   res.m[1][1] = u.y;   res.m[1][2] = u.z;   res.m[1][3] = 0;
+        res.m[2][0] = f.x;   res.m[2][1] = f.y;   res.m[2][2] = f.z;   res.m[2][3] = 0;
+        res.m[3][0] = 0;     res.m[3][1] = 0;     res.m[3][2] = 0;     res.m[3][3] = 1;
+
+        /*res.m[0][0] = r.x;   res.m[0][1] = u.x;   res.m[0][2] = f.x;   res.m[0][3] = 0;
+        res.m[1][0] = r.y;   res.m[1][1] = u.y;   res.m[1][2] = f.y;   res.m[1][3] = 0;
+        res.m[2][0] = r.z;   res.m[2][1] = u.z;   res.m[2][2] = f.z;   res.m[2][3] = 0;
+        res.m[3][0] = 0;     res.m[3][1] = 0;     res.m[3][2] = 0;     res.m[3][3] = 1;*/
 
         return res;
     }
@@ -171,7 +196,7 @@ namespace m3d
     mat4x4& mat4x4::rotate(const quat& r)
     {
         // precalc most parts
-        float i2 = r.i * r.i * 2.0f;
+        /*float i2 = r.i * r.i * 2.0f;
         float j2 = r.j * r.j * 2.0f;
         float k2 = r.k * r.k * 2.0f;
 
@@ -185,7 +210,15 @@ namespace m3d
 
         m[0][0] = 1.0f - j2 - k2;    m[0][1] = ij - kw;           m[0][2] = ik + jw;
         m[1][0] = ij + kw;           m[1][1] = 1.0f - i2 - k2;    m[1][2] = jk - iw;
-        m[2][0] = ik - jw;           m[2][1] = jk + iw;           m[2][2] = 1.0f - i2 - j2;
+        m[2][0] = ik - jw;           m[2][1] = jk + iw;           m[2][2] = 1.0f - i2 - j2;*/
+
+        vec3 forward = vec3(2.0f * (r.i * r.k - r.w * r.j), 2.0f * (r.j * r.k + r.w * r.i), 1.0f - 2.0f * (r.i * r.i + r.j * r.j));
+		vec3 up = vec3(2.0f * (r.i * r.j + r.w * r.k), 1.0f - 2.0f * (r.i * r.i + r.k * r.k), 2.0f * (r.j * r.k - r.w * r.i));
+		vec3 right = vec3(1.0f - 2.0f * (r.j * r.j + r.k * r.k), 2.0f * (r.i * r.j - r.w * r.k), 2.0f * (r.i * r.k + r.w * r.j));
+
+        m[0][0] = right.x;      m[0][1] = right.y;      m[0][2] = right.z;
+        m[1][0] = up.x;         m[1][1] = up.y;         m[1][2] = up.z;
+        m[2][0] = forward.x;    m[2][1] = forward.y;    m[2][2] = forward.z;
 
         return *this;
     }

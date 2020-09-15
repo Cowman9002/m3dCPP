@@ -95,19 +95,20 @@
 	"m3d/quat.h"
 	<math.h>
 
-1598791064 source:c:\dev\cpp\m3d\mat4x4.cpp
+1600202942 source:c:\dev\cpp\m3d\mat4x4.cpp
 	"m3d/mat4x4.h"
 	"m3d/mat3x3.h"
 	"m3d/vec3.h"
 	"m3d/vec4.h"
 	"m3d/quat.h"
 	<math.h>
+	<stdio.h>
 
-1598653599 source:c:\dev\cpp\m3d\math1d.cpp
+1600198059 source:c:\dev\cpp\m3d\math1d.cpp
 	"m3d/math1D.h"
 	<math.h>
 
-1598707146 c:\dev\cpp\m3d\m3d\math1d.h
+1600198062 c:\dev\cpp\m3d\m3d\math1d.h
 
 1598798195 source:c:\dev\cpp\m3d\vec4.cpp
 	"m3d/vec4.h"
@@ -118,15 +119,18 @@
 
 1599414903 c:\dev\cpp\m3d\m3d\vec3.h
 
-1599414822 source:c:\dev\cpp\m3d\quat.cpp
+1600203455 source:c:\dev\cpp\m3d\quat.cpp
 	"m3d/quat.h"
 	"m3d/vec3.h"
 	"m3d/math1D.h"
-	<math.h>
+	"m3d/mat4x4.h"
+	<cmath>
+	<algorithm>
+	<stdio.h>
 
-1599414721 c:\dev\cpp\m3d\m3d\quat.h
+1600206527 c:\dev\cpp\m3d\m3d\quat.h
 
-1599414992 source:c:\dev\cpp\m3d\vec3.cpp
+1600204084 source:c:\dev\cpp\m3d\vec3.cpp
 	"m3d/vec3.h"
 	"m3d/vec2.h"
 	"m3d/math1D.h"
@@ -141,5 +145,5 @@
 
 1598791008 c:\dev\cpp\m3d\m3d\mat3x3.h
 
-1598791048 c:\dev\cpp\m3d\m3d\mat4x4.h
+1600184415 c:\dev\cpp\m3d\m3d\mat4x4.h
 
